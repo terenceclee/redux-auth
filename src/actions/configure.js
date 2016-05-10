@@ -34,6 +34,10 @@ export function configure(endpoint={}, settings={}) {
       return Promise.resolve({blank: true});
     }
 
+    if (window.name === 'facebook' || window.name ==='google' || window.name === 'github') {
+      return Promise.resolve({oauth: true});
+    }
+
     dispatch(authenticateStart());
 
     let promise,
