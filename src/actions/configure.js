@@ -29,13 +29,14 @@ export function storeCurrentEndpointKey(currentEndpointKey) {
 
 export function configure(endpoint={}, settings={}) {
   return dispatch => {
+
     // don't render anything for OAuth redirects
     if (settings.currentLocation && settings.currentLocation.match(/blank=true/)) {
       return Promise.resolve({blank: true});
     }
 
     // don't render if facebook oauth login, TODO: need to handle google/github case
-    if (window.hash === '#_=_') {
+    if (window.location.hash === '#_=_') {
       return Promise.resolve({oauth: true});
     }
 
