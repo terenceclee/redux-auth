@@ -34,7 +34,8 @@ export function configure(endpoint={}, settings={}) {
       return Promise.resolve({blank: true});
     }
 
-    if (window.name === 'facebook' || window.name ==='google' || window.name === 'github') {
+    // don't render if facebook oauth login, TODO: need to handle google/github case
+    if (window.hash === '#_=_') {
       return Promise.resolve({oauth: true});
     }
 
