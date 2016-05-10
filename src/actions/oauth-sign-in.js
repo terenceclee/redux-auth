@@ -33,7 +33,7 @@ function listenForCredentials (endpointKey, popup, provider, resolve, reject) {
     } catch (err) {}
 
     if (creds && creds.uid) {
-      popup.close();
+      // popup.close();
       persistData(C.SAVED_CREDS_KEY, normalizeTokenKeys(creds));
       fetch(getTokenValidationPath(endpointKey))
         .then(parseResponse)
