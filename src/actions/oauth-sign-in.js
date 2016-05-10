@@ -30,6 +30,7 @@ function listenForCredentials (endpointKey, popup, provider, resolve, reject) {
 
     try {
       creds = getAllParams(popup.location);
+      console.log('listenForCredentials', popup.location, creds);
     } catch (err) {}
 
     if (creds && creds.uid) {
