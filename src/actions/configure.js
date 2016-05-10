@@ -36,7 +36,7 @@ export function configure(endpoint={}, settings={}) {
     }
 
     // don't render if facebook oauth login, TODO: need to handle google/github case
-    if (window.location.hash === '#_=_') {
+    if (window.location.search.match(/oauth=callback/)) {
       return Promise.resolve({oauth: true});
     }
 
