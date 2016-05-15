@@ -10,6 +10,8 @@ class EmailSignUpForm extends React.Component {
     endpoint: PropTypes.string,
     inputProps: PropTypes.shape({
       email: PropTypes.object,
+      firstname: PropTypes.object,
+      lastname: PropTypes.object,
       password: PropTypes.object,
       passwordConfirmation: PropTypes.object,
       submit: PropTypes.object
@@ -60,6 +62,27 @@ class EmailSignUpForm extends React.Component {
                errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "email"])}
                onChange={this.handleInput.bind(this, "email")}
                {...this.props.inputProps.email} />
+
+        <Input type="text"
+               label="First Name"
+               placeholder="First Name"
+               className="email-sign-up-firstname"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "firstname"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "firstname"])}
+               onChange={this.handleInput.bind(this, "firstname")}
+               {...this.props.inputProps.firstname} />
+
+
+        <Input type="text"
+               label="Last Name"
+               placeholder="Last Name"
+               className="email-sign-up-lastname"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "lastname"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "lastname"])}
+               onChange={this.handleInput.bind(this, "lastname")}
+               {...this.props.inputProps.lastname} />
 
         <Input type="password"
                label="Password"
